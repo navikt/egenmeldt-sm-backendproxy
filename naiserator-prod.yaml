@@ -1,0 +1,44 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: egenmeldt-sm-backendproxy
+  namespace: default
+  labels:
+    team: teamsykefravr
+spec:
+  image: {{ image }}
+  port: 80
+  team: teamsykefravr
+  liveness:
+    path: /isAlive
+    initialDelay: 0
+    periodSeconds: 5
+    timeout: 1
+    failureThreshold: 3
+  readiness:
+    path: /isReady
+    initialDelay: 0
+    periodSeconds: 5
+    timeout: 1
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+  replicas:
+    min: 1
+    max: 2
+    cpuThresholdPercentage: 90
+  vault:
+    enabled: true
+    paths:
+      - kvPath: /apikey/apigw/prod/egenmeldt-sykmelding-backend-api/egenmeldt-sm-backendproxy
+        mountPath: /secrets/apikey
+  ingresses:
+    - "https://egenmeldt-sm-backendproxy.nais.oera.no"
+    - "https://egenmeldt-sm-backendproxy.nav.no"
+  env:
+    - name: SERVICE_GATEWAY_URL
+      value: https://api-gw.oera.no/egenmeldt-sykmelding-backend-api/

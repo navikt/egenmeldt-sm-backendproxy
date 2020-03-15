@@ -1,0 +1,22 @@
+{
+  "eier": "Group_05b6c0d2-b6db-4440-96b4-4de66c09b3c6",
+  "sone": "FraFss",
+  "tjenester": [
+    {
+      "navn": "egenmeldt-sykmelding-backend-api",
+      "endepunkt": "https://egenmeldt-sykmelding-backend.nais.preprod.local/api",
+      "miljo": "q1"
+    },
+    {
+      "navn": "egenmeldt-sykmelding-backend-api",
+      "endepunkt": "https://egenmeldt-sykmelding-backend.nais.adeo.no/api",
+      "miljo": "p"
+    }
+  ],
+  "konsumenter": [
+    {
+      "navn": "egenmeldt-sm-backendproxy",
+      "tjeneste": "egenmeldt-sykmelding-backend-api"
+    }
+  ]
+}
