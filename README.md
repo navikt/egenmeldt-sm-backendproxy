@@ -3,7 +3,7 @@
 # egenmeldt-sm-backendproxy
 
 ## Om egenmeldt-sm-backendproxy
-Denne appen setter opp en proxyapp med nginx. Prosjektet bygger og deployer et dockerimage som heter `egenmeldt-sm-backendproxy`, dette
+Denne appen setter opp en proxyapp med Nginx. Prosjektet bygger og deployer et dockerimage som heter `egenmeldt-sm-backendproxy`, dette
 imaget kjører opp en enkel nginx-server som proxyer alle kall videre til en api-gateway-url med en gatewaykey i header.
 
 
