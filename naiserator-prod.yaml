@@ -42,3 +42,5 @@ spec:
   env:
     - name: SERVICE_GATEWAY_URL
       value: https://api-gw.oera.no/egenmeldt-sykmelding-backend-api/
+    - name: ALLOW_ORIGIN
+      value: https://tjenester.nav.no
